@@ -1,10 +1,10 @@
-package com.example.demo;
+package com.example.ora3;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DemoApplicationTests {
+class Ora3ApplicationTests {
 
 	@Test
 	void contextLoads() {
