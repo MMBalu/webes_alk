@@ -5,6 +5,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.example.ora3.service.People;
+
 public class PeopleDto {
 	
 	private Long id;
@@ -15,6 +17,13 @@ public class PeopleDto {
 	@Min(1)
 	private Integer age;
 	
+	public People toPeople() {
+		People people = new People();
+		people.setId(getId());
+		people.setAge(getAge());
+		people.setName(getName());
+		return people;
+	}
 	
 	public Long getId() {
 		return id;
@@ -34,6 +43,8 @@ public class PeopleDto {
 	public void setAge(Integer age) {
 		this.age = age;
 	}
+	
+	
 	
 	
 }

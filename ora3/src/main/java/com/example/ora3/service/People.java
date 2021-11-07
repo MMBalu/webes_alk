@@ -1,4 +1,4 @@
-package com.example.ora3.repository;
+package com.example.ora3.service;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
@@ -35,14 +35,7 @@ public class People {
 		this.age = age;
 	}
 	
+
 	
-	People toPeople() {
-		People people = new People();
-		people.setId();
-		people.setName();
-		people.setAge();
-		
-		
-	}
 
 }

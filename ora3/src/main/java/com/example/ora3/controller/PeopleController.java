@@ -2,7 +2,6 @@ package com.example.ora3.controller;
 
 import javax.validation.Valid;
 
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,14 +19,14 @@ public class PeopleController {
 	
 	@PostMapping(path = "/people", consumes = "application/json")
 	void savePeople(@Valid @RequestBody PeopleDto peopledto){
+		/**/
+		peopleService.savePeople(
+					peopledto.toPeople()
+				);
+		/**/
 		
-		this.peopleService.savePeople(
-					peopledto.toPeople
-				)
 		
-		
-		
-		System.out.println(peopledto);
+		System.out.println(peopledto+" Sikeres POST küldés!");
 		
 	}
 	
