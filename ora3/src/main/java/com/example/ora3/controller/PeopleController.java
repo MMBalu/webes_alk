@@ -6,27 +6,29 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.ora3.repository.PeopleEntity;
+import com.example.ora3.repository.PeopleRepository;
 import com.example.ora3.service.PeopleService;
 
 @RestController
 public class PeopleController {
 	
-	private PeopleService peopleService;
+	private  PeopleService peopleservice;
 	
-	public PeopleController(PeopleService peopleService) {
-		this.peopleService = peopleService;
+	public PeopleController(PeopleService peopleservice) {
+		this.peopleservice = peopleservice;
 	}
 	
 	@PostMapping(path = "/people", consumes = "application/json")
 	void savePeople(@Valid @RequestBody PeopleDto peopledto){
 		/**/
-		peopleService.savePeople(
-					peopledto.toPeople()
+		peopleservice.savePeople(
+				peopledto.toPeopleEntity()
 				);
 		/**/
 		
 		
-		System.out.println(peopledto+" Sikeres POST küldés!");
+		System.out.println("Sikeres POST küldés! -- " + peopledto.toString());
 		
 	}
 	

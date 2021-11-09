@@ -16,16 +16,18 @@ public class PeopleEntity {
 	@Column(length=20)
 	private String name;
 	
-	/*
-	//constructor
 	
-	public People() {
-		
+	//constructors
+	
+	public PeopleEntity() {
+		super();
 	}
 	
-	public People(String name, Long age) {
-		this.name = name;
+	public PeopleEntity(Long id, String name, Long age) {
+		super();
+		this.id = id;
 		this.age = age;
+		this.name = name;
 	}
 
 
@@ -34,6 +36,7 @@ public class PeopleEntity {
 	public Long getAge() {
 		return age;
 	}
+
 
 	public void setAge(Long age) {
 		this.age = age;
@@ -51,7 +54,15 @@ public class PeopleEntity {
 		return id;
 	}
 
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-	*/
+	//to String
+	@Override
+	public String toString() {
+		return "PeopleEntity [id=" + id + ", age=" + age + ", name=" + name + "]";
+	}
+
 	
 }

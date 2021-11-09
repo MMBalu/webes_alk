@@ -5,6 +5,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.example.ora3.repository.PeopleEntity;
 import com.example.ora3.service.People;
 
 public class PeopleDto {
@@ -15,16 +16,23 @@ public class PeopleDto {
 	private String name;
 	@NotNull
 	@Min(1)
-	private Integer age;
+	private Long age;
 	
-	public People toPeople() {
-		People people = new People();
-		people.setId(getId());
+	public PeopleEntity toPeopleEntity() {
+		PeopleEntity people = new PeopleEntity(id, name, age);
+		/*
+		people.setId(id);
 		people.setAge(getAge());
 		people.setName(getName());
+		*/
 		return people;
 	}
 	
+	@Override
+	public String toString() {
+		return "PeopleDto [id=" + id + ", name=" + name + ", age=" + age + "]";
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -37,10 +45,10 @@ public class PeopleDto {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Integer getAge() {
+	public Long getAge() {
 		return age;
 	}
-	public void setAge(Integer age) {
+	public void setAge(Long age) {
 		this.age = age;
 	}
 	
